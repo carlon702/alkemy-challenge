@@ -1,5 +1,6 @@
 import axios from "axios"
 import sweetAlert from 'sweetalert2';
+import { Navigate } from "react-router-dom"
 
 
 
@@ -10,6 +11,8 @@ function Login() {
 
     
     
+    let token = sessionStorage.getItem('token');
+
 
     const SubmitHandler = e => {
 
@@ -17,7 +20,7 @@ function Login() {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-       
+        
       
        
        
@@ -68,10 +71,10 @@ function Login() {
                 icon: 'success',
                 confirmButtonText: 'Ok'
             })
-            const token = response.data.token;
+            const tokenData = response.data.token;
             
-            localStorage.setItem('token', token);
-            if(localStorage.token){
+            sessionStorage.setItem('token', tokenData);
+            if(sessionStorage.token){
                 setTimeout(function () {
                     window.location.href = "/list";
                  }, 3000);
@@ -80,23 +83,15 @@ function Login() {
             
             
         })
-        
-    
-     
-            
-        
 
         
-        
-            
-            
-              
-         
         }
 
-      
+     
         
     return (
+        <>
+        {token && (<Navigate to={'/list'} replace={true}/>)}
         <div>
             
         
@@ -117,6 +112,8 @@ function Login() {
         </form>
 
         </div>
+
+        </>
     )
 };
 
