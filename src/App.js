@@ -5,9 +5,11 @@ import List from "./elements/List"
 import Header from "./elements/Header"
 import Footer from "./elements/Footer"
 import Detail from "./elements/Detail"
+import Results from "./elements/Results"
 
-
+import "./css/app.css"
 import "./css/bootstrap.min.css"
+
 
 function App() {
   
@@ -24,7 +26,7 @@ function App() {
 
     <Route id='detail' path='/detail' element={<Detail/>} />
 
-
+    <Route id='results' path='/results' element={<Results/>} />
   </Routes>
   </div>
   <Footer/>

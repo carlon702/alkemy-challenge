@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 
 const logOut = e => {
@@ -25,8 +26,12 @@ function Header() {
                     <Link to={"/list"}>Listado</Link>
                     <Link >Contacto</Link>
                     <Link to={"/login"}>Login</Link>
+                    <SearchBar/>
                     <button onClick={logOut} className="btn btn-primary"> LogOut </button>
+
                 </ul>
+                
+
             </nav>
         </header>
     )

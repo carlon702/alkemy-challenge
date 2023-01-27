@@ -9,13 +9,14 @@ function List() {
 
 
   const [moviesList, setMoviesList] = useState([]);
-  const apiKey = "fca49abe981340566a30ab32d23b37ed";
+  
   let token = sessionStorage.getItem('token'); 
 
 
 
   useEffect(()=>{
-    const endpoint = "https://api.themoviedb.org/3/discover/movie?api_key=fca49abe981340566a30ab32d23b37ed&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22";
+    const apiKey = "fca49abe981340566a30ab32d23b37ed";
+    const endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`;
     axios.get(endpoint)
     .then(res=>{ 
       let apiData = res.data
@@ -45,6 +46,7 @@ function List() {
     <div className="col-3" key={index}>
   <div className="card my-4">
     <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} className="card-img-top" alt="..."/>
+    <button className="favorite-btn"> 🖤 </button>
     <div className="card-body">
       <h5 className="card-title">{movie.title}</h5>
       <p className="card-text">{movie.overview.substring(0, 60)}. . .</p>
