@@ -16,3 +16,53 @@
 .favorite-btn:hover{
     background-color: red;
 }
+
+
+.heart-shape{
+    transition: all 450ms;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: grey;
+    top:10px;
+    right: 10px;
+    border: none;
+    z-index: 100;
+  }
+  .heart-shape:before,
+  .heart-shape:after{
+    transition: all 450ms;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: grey;
+  }
+  .heart-shape:before{
+    bottom: 0px;
+    left: -10px;
+  }
+  .heart-shape:after{
+    top: -10px;
+    right: 0px;
+  }
+
+  .heart-shape:hover{
+    background-color: red;
+
+  }
+  .heart-shape:hover:after{
+    background-color: red;
+  }
+  .heart-shape:hover:before{
+    background-color: red;
+  }

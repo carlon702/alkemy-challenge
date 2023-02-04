@@ -5,8 +5,8 @@ import sweetAlert from 'sweetalert2';
 
 
 
-function List() {
-
+function List(props) {
+  
 
   const [moviesList, setMoviesList] = useState([]);
   
@@ -46,7 +46,11 @@ function List() {
     <div className="col-3" key={index}>
   <div className="card my-4">
     <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} className="card-img-top" alt="..."/>
-    <button className="favorite-btn"> 🖤 </button>
+    {/* <button className="favorite-btn"> 🖤 </button> */}
+    <button 
+    movie-id={movie.id}
+    onClick={props.addOrRemoveFromFavorites}
+    className="heart-shape"/>
     <div className="card-body">
       <h5 className="card-title">{movie.title}</h5>
       <p className="card-text">{movie.overview.substring(0, 60)}. . .</p>
