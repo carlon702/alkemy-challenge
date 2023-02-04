@@ -45,7 +45,7 @@ function List(props) {
   return(
     <div className="col-3" key={index}>
   <div className="card my-4">
-    <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} className="card-img-top" alt="..."/>
+  {movie.backdrop_path !== null? <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} className="card-img-top" alt="..."/>: <img src="https://cdn.onlinewebfonts.com/svg/img_98811.png" className="card-img-top" alt="..."/> }
     {/* <button className="favorite-btn"> 🖤 </button> */}
     <button 
     movie-id={movie.id}

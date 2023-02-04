@@ -70,7 +70,7 @@ function App() {
 
     <Route id='detail' path='/detail' element={<Detail/>} />
 
-    <Route id='results' path='/results' element={<Results/>} />
+    <Route id='results' path='/results' element={<Results addOrRemoveFromFavorites={addOrRemoveFromFavorites} />} />
   </Routes>
   </div>
   <Footer/>

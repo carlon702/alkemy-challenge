@@ -5,7 +5,7 @@ import sweetAlert from 'sweetalert2';
 
 
 
-function Results () {
+function Results (props) {
     const apiKey = "fca49abe981340566a30ab32d23b37ed";
 
     let [searchParams] = useSearchParams();
@@ -45,11 +45,15 @@ function Results () {
    
 
     return(
-      <>{searchResult.length === 0 && <p>No hay resultados</p>}
+      <div className="row">{searchResult.length === 0 && <p>No hay resultados</p>}
     {searchResult.map((movie, index)=>{
         return(<div className="col-3" key={index}>
         <div className="card my-4">
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} className="card-img-top" alt="..."/>
+          {movie.backdrop_path !== null? <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} className="card-img-top" alt="..."/>: <img src="https://cdn.onlinewebfonts.com/svg/img_98811.png" className="card-img-top" alt="..."/> }
+          <button 
+    movie-id={movie.id}
+    onClick={props.addOrRemoveFromFavorites}
+    className="heart-shape"/>
           <div className="card-body">
             <h5 className="card-title">{movie.title}</h5>
             <p className="card-text">{movie.overview.substring(0, 60)}. . .</p>
@@ -60,7 +64,7 @@ function Results () {
         </div>)
         
 
-    })}</>)
+    })}</div>)
     
 }
 
